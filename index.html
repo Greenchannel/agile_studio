@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>灵动工作室官方网站</title>
+    <style>
+        /* 全局样式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        /* 导航栏样式 */
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #007bff;
+            padding: 10px 0;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a.active {
+            background-color: #0056b3;
+        }
+
+        .navbar a:hover {
+            background-color: #0056b3;
+        }
+
+        /* 主体内容样式 */
+        .content {
+            padding: 20px;
+            min-height: calc(100vh - 60px);
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* 图片样式 */
+        img {
+            max-width: 50%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="navbar">
+        <a href="#" onclick="showContent('home')">首页</a>
+        <a href="#" onclick="showContent('join-us')">加入我们</a>
+        <a href="#" onclick="showContent('people')">我们</a>
+        <a href="#" onclick="showContent('portfolio')">作品</a>
+    </div>
+
+    <!-- 主体内容 -->
+    <div id="home" class="content">
+        <h1>欢迎来到首页(新游戏《方格解密》即将上线！！！)</h1>
+        <p>这里是我们的主页，展示工作室的核心内容</p>
+        <p>本网站建设中</p>
+
+        <h1>关于我们</h1>
+        
+        <p>我们的LOGO是由全体人员投票得出的</p>
+        <p>这个LOGO代表着我们思维的灵动</p>
+        <img src="LOGO.jpg" alt="灵动工作室LOGO">
+         <p>@AGILE STUDIO 版权所有</p>
+     </div>
+
+    <div id="join-us" class="content hidden">
+        <h1>加入我们</h1>
+        <p>如果你对我们的工作感兴趣，欢迎加入我们的团队！</p>
+        <p>我们旨在创造令人眼前一亮的地图!</p>
+        <p>我们的Email:暂无</p>
+        <p>我们的QQ讨论群:暂无</p>
+        
+        
+        
+        
+        <p>@AGILE STUDIO 版权所有</p>
+    </div>
+    <div id="people" class="content hidden">
+        <h1>我们</h1>
+        <p>这是一个全部由初中生组成的团体，但是在小学我们就有了组建工作室的想法,并且已经有了雏形</p>
+        <p>我们旨在创建精美的地图</p>
+        <p>我们的作品虽然不多，但是都是精品,比如跨年晚会场</p>
+        <p>下面这张minecraft合影是在跨年晚会场中拍摄，汇聚了大部分成员</p>
+        <p>但是也有许多成员因为时间原因无法参加拍摄，比如网站开发者:(</p>
+        
+        
+        
+        
+        
+        <img src="famliy.jpg" alt="大合影">
+        <h1>下面是我们成员的个人介绍</h1>
+        <li><a href="xpan.html">名字丢了的小潘</a></li>
+        <li><a href="shensui.html">深邃流年</a></li>
+        <li><a href="fm.html">原来我是帅哥123</a></li>
+        <li><a href="gc.html">小潘小王早生贵子</a></li>
+        <p>@AGILE STUDIO 版权所有</p>
+    </div>
+    
+    <div id="portfolio" class="content hidden">
+        <h1>以下是我们的地图展示：</h1>
+
+        <h1>跨年晚会场</h1>
+        
+        <p>我们的全部心血可以说都凝聚在这张地图中了</p>
+        <a href="https://www.bilibili.com/video/BV1HNAdeZEiU/?vd_source=5e6dc954e3d1bcefb68c93bf2e8daf56" class=button>跨年晚会场BiliBili宣传片</a>
+        <ul>
+            
+            <li><img src="1.jpg" alt="1"></li>
+            <li><img src="2.jpg" alt="2"></li>
+            <li><img src="3.jpg" alt="3"></li>
+            <li><img src="4.jpg" alt="4"></li>
+            <li><img src="5.jpg" alt="5"></li>
+            <li><img src="6.jpg" alt="6"></li>
+            <li><img src="7.jpg" alt="7"></li>
+            <li><img src="8.jpg" alt="8"></li>
+            <li><img src="9.jpg" alt="9"></li>
+        </ul>
+        <p>@AGILE STUDIO 版权所有</p>
+    </div>
+
+    <script>
+        function showContent(tabId) {
+            // 获取所有内容区域
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => content.classList.add('hidden'));
+
+            // 显示指定的内容区域
+            const selectedContent = document.getElementById(tabId);
+            if (selectedContent) {
+                selectedContent.classList.remove('hidden');
+            }
+
+            // 更新导航栏高亮状态
+            const links = document.querySelectorAll('.navbar a');
+            links.forEach(link => link.classList.remove('active'));
+            document.querySelector(`.navbar a[onclick*="${tabId}"]`).classList.add('active');
+        }
+
+        // 默认显示首页
+        window.onload = function () {
+            showContent('home');
+        };
+    </script>
+    
+    
+</body>
+</html>
