@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!-- -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>灵动工作室官方网站</title>
+    <link rel="icon" href="https://free.picui.cn/free/2025/12/13/693cf40080ca3.ico" type="image/x-icon">
+    <style>
+        /* 全局样式 */
+        .large-p{
+            font-size : 24px;
+        }
+        .small-p{
+            font-size : 12px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            /*background-color:rgb(246, 246, 246);*/
+            /* 渐变背景 */
+            background: linear-gradient(-45deg ,#174DE3,#282F41,#A8BFFF,#090A0D);
+            background-size: 600% 600%; /* 注意：这里加了冒号！ */
+            animation: gradientBG 5s ease infinite;
+            min-height: 100vh;
+            position: relative;
+            }
+        @keyframes gradientBG {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }    
+
+    
+        /* 导航栏样式 */
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #053154;
+            padding: 10px 0;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a.active {
+            background-color: #0056b3;
+        }
+
+        .navbar a:hover {
+            background-color: #0056b3;
+        }
+
+        /* 主体内容样式 */
+        .content {
+            padding: 20px;
+            min-height: calc(100vh - 60px);
+            text-align: center;
+            /* 新增：让文字更清晰 */
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 12px;
+            margin: 20px auto;
+            max-width: 900px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* 图片样式 */
+        img {
+            max-width: 50%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#" onclick="showContent('home')">首页</a>
+        <!--<a href="#" onclick="showContent('join-us')">加入我们</a>-->
+        <a href="#" onclick="showContent('activitis')">活动</a>
+        <a href="#" onclick="showContent('people')">关于我们</a>
+        <a href="#" onclick="showContent('portfolio')">作品</a>
+        
+    </div>
+    <!--
+    我在这埋个彩蛋没人发现吧awa
+    伊蕾娜天下第一!
+    -->
+    <!-- 主体内容 -->
+    <div id="home" class="content">
+        <h1>Hello!</h1>
+        <p>     欢迎来到灵动工作室官网,这里展示的为我们核心内容,欢迎浏览 祝您浏览愉快！</p>
+        <img src="https://free.picui.cn/free/2025/12/13/693cf401efee5.jpg" alt="展示图片">
+        <p>1.经内部人员投票决定,灵动工作室将会继续沿用以前的工作室图标 图标如下图:</p>
+        <h1>灵动工作室LOGO</h1>
+        <img src="https://free.picui.cn/free/2025/12/13/693cf400d902a.jpg" alt="工作室Logo">
+        <p>2.灵动工作室壁纸新鲜上架!您可以移步至[资源下载站]进行下载</p>
+        <h1>壁纸下载站</h1>
+        <a href="index-download/download.html" class=button>点击跳转</a>
+        <p>@AGILE STUDIO 版权所有</p>
+     </div>
+    <div id="activitis" class="content hidden">
+        <h1>灵动活动</h1>
+        <h1>AGILE ACTIVITY</h1>
+        <p>全部的工作室活动都会在这里实时记载</p>
+        <p class="large-p">灵动工作室二周年活动</p>
+        <p class="large-p">“大步跨越 灵动无限”</p>
+        <p class="large-p">AGILE STUDIO 2TH</p>
+        <p>〇参与活动:2026/1/1 〇活动地点:腾讯会议 〇活动名称:灵动周年会</p>
+        <img src="https://free.picui.cn/free/2025/12/13/693cf522df899.jpg" alt="activities-agilestudio-2th">
+        <h1>历史活动查询</h1>
+        <a href="index-shows/activities-history.html">点击跳转</a>
+        <p>@AGILE STUDIO 版权所有</p>
+    </div>
+    <div id="join-us" class="content hidden">
+        <h1>加入我们</h1>
+        <p>如果你对我们的工作感兴趣，欢迎加入我们的团队！</p>
+        <p>我们旨在创造令人眼前一亮的地图!</p>
+        <p>我们的Email:暂无</p>
+        <p>我们的QQ讨论群:921725055</p>
+        <p>@AGILE STUDIO 版权所有</p>
+    </div>
+    <div id="people" class="content hidden">
+        <h1>关于我们</h1>
+        <p style="color:darkgrey">一个由初中生组成的团队</p>
+        <!-- <a href="https://www.bilibili.com/video/BV13texzfEiJ?buvid=XU6B50A68DB17FEF4BDE0BC2D455A484A1A0C&from_spmid=dt.space-dt.video.0&is_story_h5=false&mid=0t71jdyFEiBe9%2FwNr%2F5gYH8FTQ%2FSZMtL1rElX6M3iMo%3D&plat_id=116&share_from=ugc&share_medium=android&share_plat=android&share_session_id=23914114-13c5-42f6-9852-503aa5128980&share_source=COPY&share_tag=s_i&spmid=united.player-video-detail.0.0&timestamp=1756097825&unique_k=fyDVz3z&up_id=3546564746283181&vd_source=5e6dc954e3d1bcefb68c93bf2e8daf56">我们的BiliBili宣传片</a>-->
+        <p>我们旨在创建精美的地图</p>
+        <p style="color:darkgrey">作品虽不多 但皆为精品地图</p>
+        <p style="color:aqua">以质量 美学 实用为中心创作地图</p>        
+        <p>下面这张minecraft合影是在跨年晚会场中拍摄，汇聚了大部分成员</p>
+        <p>但是也有许多成员因为时间原因无法参加拍摄，比如网站开发者:(</p>
+        <img src="https://free.picui.cn/free/2025/12/13/693cf522c1721.jpg" alt="大合影">
+        <h1>下面是我们成员的个人介绍(不全)</h1>
+        <li><a href="index-shows/xpan.html">名字丢了的小潘</a></li>
+        <li><a href="index-shows/fm.html">原来我是帅哥123</a></li>
+        <li><a href="index-shows/gc.html">Green_channel</a></li>
+        <li><a href="index-shows/xwang.html">被封三次的小王</a></li>
+        <h1 style="color:rgb(231, 185, 71)">灵动工作室成员福利</h1>
+        <p>程序员福利:维护网站+2 开发MOD+5上传地图+5 其他(根据实际评估)</p>
+        <p>建筑部福利:建筑一项+1 指令贡献+2 美化+3 其他(根据实际评估)</p>
+        <p>宣传部福利:宣传+1宣传生效+3 招入+2 其他(根据实际评估)</p>
+        <p>活动部福利:宣传活动+2 获得认可+2 组织福利+3 全面组织活动过程+10</p>
+        <p>其他贡献:根据实际情况评估获得奖金</p>
+        <p class="small-p">此图仅供参考 一切以实际为准</p>
+        <p>@AGILE STUDIO 版权所有</p>
+    </div>
+    
+    <div id="portfolio" class="content hidden">
+        <h1>建造进度</h1>
+        <p>跨年晚会场(Ver:2025)[已完工]</p>
+        <p>2.花海[已完工]</p>
+        <p>3.方格解密[建设中]</p>
+        <p>4.未知的恐惧(系列章节)[停工]</p>
+        <p>5.跨年晚会场(2026)[等待开启]</p>
+        <h1>以下是我们的地图展示：</h1>
+
+        <h1>跨年晚会场(Ver:2025)</h1>
+        
+        <p>我们的全部心血可以说都凝聚在这张地图中了</p>
+        <ul>
+            
+            <li><img src="https://free.picui.cn/free/2025/12/13/693cf52a814bb.jpg" alt="1"></li>
+            <li><img src="https://free.picui.cn/free/2025/12/13/693cf52ab2126.jpg" alt="2"></li>
+            <li><img src="https://free.picui.cn/free/2025/12/13/693cf52c12d5a.jpg" alt="3"></li>
+            <li><img src="https://free.picui.cn/free/2025/12/13/693cf52c916a8.jpg" alt="4"></li>
+            <li><img src="https://free.picui.cn/free/2025/12/13/693cf52e16ed8.jpg" alt="5"></li>
+            <li><img src="https://free.picui.cn/free/2025/12/13/693cf52fa9b26.jpg" alt="6"></li>
+            <li><img src="https://free.picui.cn/free/2025/12/13/693cf5307bb4c.jpg" alt="7"></li>
+            <li><img src="https://free.picui.cn/free/2025/12/13/693cf531cbdeb.jpg" alt="8"></li>
+            <li><img src="https://free.picui.cn/free/2025/12/13/693cf532caeb1.jpg" alt="9"></li>
+        </ul>
+        <p>@AGILE STUDIO 版权所有</p>
+    </div>
+
+    <script>
+        function showContent(tabId) {
+            // 获取所有内容区域
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => content.classList.add('hidden'));
+
+            // 显示指定的内容区域
+            const selectedContent = document.getElementById(tabId);
+            if (selectedContent) {
+                selectedContent.classList.remove('hidden');
+            }
+
+            // 更新导航栏高亮状态
+            const links = document.querySelectorAll('.navbar a');
+            links.forEach(link => link.classList.remove('active'));
+            document.querySelector(`.navbar a[onclick*="${tabId}"]`).classList.add('active');
+        }
+
+        // 默认显示首页
+        window.onload = function () {
+            showContent('home');
+        };
+    </script>    
+</body>
+</html>
