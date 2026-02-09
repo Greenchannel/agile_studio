@@ -6,27 +6,83 @@
     <title>灵动工作室资源下载站</title>
     <link rel="icon" href="https://free.picui.cn/free/2025/12/13/693cf40080ca3.ico" type="image/x-icon">
     <style>
+        /* 全局样式 */
+        .large-p{
+            font-size : 24px;
+        }
+        .small-p{
+            font-size : 12px;
+        }
         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            /*background-color:rgb(246, 246, 246);*/
+            /* 渐变背景 */
+            background: linear-gradient(-45deg ,#174DE3,#282F41,#A8BFFF,#090A0D);
+            background-size: 600% 600%; /* 注意：这里加了冒号！ */
+            animation: gradientBG 5s ease infinite;
+            min-height: 100vh;
+            position: relative;
+            }
+        @keyframes gradientBG {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }    
+
+    
+        /* 导航栏样式 */
+        .navbar {
             display: flex;
-            justify-content: center; /* 水平居中 */
-            align-items: center;    /* 垂直居中 */
-            height: auto;          /* 设置页面高度为视口高度 */
-            margin: 0;              /* 移除默认外边距 */
-            background-color: #f0f0f0; /* 页面背景颜色 */
+            justify-content: space-around;
+            align-items: center;
+            background-color: #053154;
+            padding: 10px 0;
         }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a.active {
+            background-color: #0056b3;
+        }
+
+        .navbar a:hover {
+            background-color: #0056b3;
+        }
+
+        /* 主体内容样式 */
         .centered-box {
-            text-align: center;     /* 文本内容居中 */
-            padding: 20px;          /* 内边距 */
-            border-radius: 10px;    /* 圆角 */
-            background-color: #d3d3d3; /* 灰色背景 */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加轻微阴影效果 */
+            padding: 20px;
+            min-height: calc(100vh - 60px);
+            text-align: center;
+            /* 新增：让文字更清晰 */
+            background-color: rgba(255, 255, 255, 0.35);
+            border-radius: 12px;
+            margin: 20px auto;
+            max-width: 900px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
+
+        .hidden {
+            display: none;
+        }
+
+        /* 图片样式 */
         img {
             max-width: 50%;
             height: auto;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+        
     </style>
 </head>
 <body>
