@@ -1,0 +1,120 @@
+/* ============================================
+   Agile Studio 主题适配 — 覆盖 ToneCSS 默认值
+   ============================================ */
+
+/* --- 自定义 ToneCSS 变量，匹配原设计风格 --- */
+:root {
+  --tone-color-primary: #0056b3;
+  --tone-color-secondary: #053154;
+  --tone-color-link: #0056b3;
+  --tone-color-link-hover: #003d80;
+  --tone-bg: transparent;
+  --tone-bg-alt: rgba(255, 255, 255, 0.35);
+  --tone-border-radius: 12px;
+}
+
+/* --- 保留原有渐变背景 --- */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(-45deg, #174DE3, #282F41, #AF2D67, #A8BFFF, #090A0D);
+  background-size: 600% 600%;
+  animation: gradientBG 5s ease infinite;
+  min-height: 100vh;
+  position: relative;
+}
+
+@keyframes gradientBG {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* --- 导航栏（原 .navbar 样式，保留） --- */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #053154;
+  padding: 10px 0;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.navbar a.active {
+  background-color: #0056b3;
+}
+
+.navbar a:hover {
+  background-color: #0056b3;
+}
+
+/* --- 主体容器（原 .content 和 .centered-box 合并） --- */
+.content,
+.centered-box {
+  padding: 20px;
+  min-height: calc(100vh - 60px);
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.35);
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 900px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* --- 隐藏类 --- */
+.hidden {
+  display: none;
+}
+
+/* --- 图片样式 --- */
+img {
+  max-width: 50%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 工具类（原 inline 样式维持） --- */
+.large-p {
+  font-size: 24px;
+}
+
+.small-p {
+  font-size: 12px;
+}
+
+/* --- 链接颜色还原（ToneCSS 可能覆盖） --- */
+.centered-box a,
+.content a {
+  color: #0056b3;
+}
+
+.centered-box a:hover,
+.content a:hover {
+  color: #003d80;
+}
+
+/* --- 回复 ToneCSS 对 body 文字的覆盖 --- */
+.centered-box,
+.content {
+  color: #333;
+}
+
+/* --- 修复选中文字样式（ToneCSS 默认选中文字会变透明） --- */
+::selection {
+  background-color: #3390ff !important;
+  color: #ffffff !important;
+}
+::-moz-selection {
+  background-color: #3390ff !important;
+  color: #ffffff !important;
+}

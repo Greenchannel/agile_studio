@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <!-- -->
 <head>
@@ -6,85 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>灵动工作室官方网站</title>
     <link rel="icon" href="fav.ico" type="image/x-icon">
-    <style>
-        /* 全局样式 */
-        .large-p{
-            font-size : 24px;
-        }
-        .small-p{
-            font-size : 12px;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            /*background-color:rgb(246, 246, 246);*/
-            /* 渐变背景 */
-            background: linear-gradient(-45deg ,#174DE3,#282F41,#AF2D67,#A8BFFF,#090A0D);
-            background-size: 600% 600%; /* 注意：这里加了冒号！ */
-            animation: gradientBG 5s ease infinite;
-            min-height: 100vh;
-            position: relative;
-            }
-        @keyframes gradientBG {
-            0%   { background-position: 0% 50%; }
-            50%  { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }    
-
-    
-        /* 导航栏样式 */
-        .navbar {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            background-color: #053154;
-            padding: 10px 0;
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            padding: 10px 20px;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-
-        .navbar a.active {
-            background-color: #0056b3;
-        }
-
-        .navbar a:hover {
-            background-color: #0056b3;
-        }
-
-        /* 主体内容样式 */
-        .content {
-            padding: 20px;
-            min-height: calc(100vh - 60px);
-            text-align: center;
-            /* 新增：让文字更清晰 */
-            background-color: rgba(255, 255, 255, 0.35);
-            border-radius: 12px;
-            margin: 20px auto;
-            max-width: 900px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        /* 图片样式 */
-        img {
-            max-width: 50%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-    </style>
+    <link rel="stylesheet" href="css/tone.css">
+    <link rel="stylesheet" href="css/agile-theme.css">
+    <!--
+    从agile_studio\css\agile-theme.css和agile_studio\css\agile-theme.css引入CSS样式!
+    这么做的目的是避免我看的眼花缭乱 同时节约部署项目的时间 而且(大概是)可以节约token消耗的(太烧钱辣!被迫优化!)
+    -->
 </head>
 <body>
     <div class="navbar">
@@ -98,17 +25,27 @@
     <!--
     我在这埋个彩蛋没人发现吧awa
     伊蕾娜天下第一!
+    对了,如果你看到了这行注释,那么我要恭喜我自己,因为这说明我的github仓库终于有人看了或者工作室终于找到别人和我一起维护网页了
+    我写这些注释有点放飞自我了,反正也就我会看这些注释
+    我是自我介绍中的_cute486_
+    二次元爱好者 jpop/jrock爱好者 希望能吸引一些同好
+    "どうかこの夜が　朝にならないで"--<C7>GO!GO!7188
     -->
     <!-- 主体内容 -->
     <div id="home" class="content">
         <h1>Hello!</h1>
         <p>     欢迎来到灵动工作室官网,这里展示的为我们核心内容,欢迎浏览 祝您浏览愉快！</p>
         <img src="new-shows.webp" alt="展示图片">
-        <p>性能更新!</p>
+        
+        <p>性能更新 and 样式美化!</p>
         <p>我们优化了img资源加载方案,将img资源内置于网站项目文件之中,提供了GithubPages和CloudflarePages两种访问方案</p>
-        <p>下面是旧站(部署于GithubPages)和新站(部署于CloudflarePages)的网址</p>
+        <p>我们这次更新还把不同html页面里相同的CSS样式单独列为一个文件,以提升性能。</p>
+        <p>同时,我们还使用了ToneCSS来美化样式!(仔细观察链接,鼠标悬停时还有变色效果!)</p>
+        <!--<p>下面是旧站(部署于GithubPages)和新站(部署于CloudflarePages)的网址</p>
         <a href="https://greenchannel.github.io/agile_studio">旧站</a>
-        <a href="http://agilestudio.dpdns.org/">新站</a>
+        <a href="http://agilestudio.dpdns.org/">新站</a>-->
+        <!--牛而逼之 这波超绝长难句-->
+        <p>这里是<a href="https://greenchannel.github.io/agile_studio">旧站</a>(部署于GithubPages)和<a href="http://agilestudio.dpdns.org/">新站</a>(部署于CloudflarePages)的网址</p>
         <p>2.经内部人员投票决定,灵动工作室将会继续沿用以前的工作室图标 图标如下图:</p>
         <h1>灵动工作室LOGO</h1>
         <!--<img src="https://smproxy.dpdns.org/https://free.picui.cn/free/2025/12/13/693cf400d902a.jpg" alt="工作室Logo">-->
@@ -131,6 +68,7 @@
         <a href="activities-history.html">点击跳转</a>
         <p>@AGILE STUDIO 版权所有</p>
     </div>
+    <!--已经废弃-->
     <div id="join-us" class="content hidden">
         <h1>加入我们</h1>
         <p>如果你对我们的工作感兴趣，欢迎加入我们的团队！</p>
@@ -154,6 +92,7 @@
         <li><a href="index-shows/gc.html">_cute486_</a></li>
         <li><a href="index-shows/xwang.html">被封三次的小王</a></li>
         <li><a href="index-shows/ds.html">DeepSeek</a></li>
+        <p class="small-p">注:DeepSeek只是个性昵称!是真正的人类!!<p>
         <h1 style="color:rgb(231, 185, 71)">灵动工作室成员福利</h1>
         <p>程序员福利:维护网站+2 开发MOD+5上传地图+5 其他(根据实际评估)</p>
         <p>建筑部福利:建筑一项+1 指令贡献+2 美化+3 其他(根据实际评估)</p>
