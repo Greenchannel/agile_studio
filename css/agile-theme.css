@@ -1,5 +1,6 @@
 /* ============================================
    Agile Studio 主题适配 — 覆盖 ToneCSS 默认值
+   液态玻璃效果（Glassmorphism）已集成
    ============================================ */
 
 /* --- 自定义 ToneCSS 变量，匹配原设计风格 --- */
@@ -11,33 +12,59 @@
   --tone-bg: transparent;
   --tone-bg-alt: rgba(255, 255, 255, 0.35);
   --tone-border-radius: 12px;
+
+  /* --- 液态玻璃（Glassmorphism）自定义变量 --- */
+  --glass-bg: rgba(255, 255, 255, 0.12);
+  --glass-bg-strong: rgba(255, 255, 255, 0.18);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.25);
+  --glass-border-hover: 1px solid rgba(255, 255, 255, 0.45);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  --glass-shadow-hover: 0 12px 48px rgba(0, 0, 0, 0.35);
+  --glass-blur: blur(16px);
+  --glass-blur-soft: blur(12px);
+  --glass-radius: 16px;
+  --glass-transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* --- 保留原有渐变背景 --- */
+/* --- 保留原有渐变背景（加强版：放大、更顺滑） --- */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background: linear-gradient(-45deg, #174DE3, #282F41, #AF2D67, #A8BFFF, #090A0D);
-  background-size: 600% 600%;
-  animation: gradientBG 5s ease infinite;
+  background-size: 400% 400%;
+  animation: gradientBG 8s ease infinite;
   min-height: 100vh;
   position: relative;
 }
 
 @keyframes gradientBG {
   0%   { background-position: 0% 50%; }
+  25%  { background-position: 100% 0%; }
   50%  { background-position: 100% 50%; }
+  75%  { background-position: 0% 100%; }
   100% { background-position: 0% 50%; }
 }
 
-/* --- 导航栏（原 .navbar 样式，保留） --- */
+/* --- 导航栏（液态玻璃风格） --- */
 .navbar {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #053154;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur-soft);
+  -webkit-backdrop-filter: var(--glass-blur-soft);
+  border-bottom: var(--glass-border);
   padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: var(--glass-transition);
+}
+
+.navbar:hover {
+  background: var(--glass-bg-strong);
+  border-bottom: var(--glass-border-hover);
 }
 
 .navbar a {
@@ -45,29 +72,88 @@ body {
   text-decoration: none;
   font-size: 18px;
   padding: 10px 20px;
-  border-radius: 4px;
-  transition: background-color 0.3s;
+  border-radius: 8px;
+  transition: var(--glass-transition);
+  position: relative;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.navbar a:hover::after {
+  width: 60%;
 }
 
 .navbar a.active {
-  background-color: #0056b3;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.navbar a.active::after {
+  width: 60%;
 }
 
 .navbar a:hover {
-  background-color: #0056b3;
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
 }
 
-/* --- 主体容器（原 .content 和 .centered-box 合并） --- */
+/* --- 主体容器（液态玻璃效果） --- */
 .content,
 .centered-box {
-  padding: 20px;
-  min-height: calc(100vh - 60px);
+  padding: 32px 24px;
+  min-height: calc(100vh - 80px);
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.35);
-  border-radius: 12px;
-  margin: 20px auto;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: var(--glass-radius);
+  margin: 24px auto;
   max-width: 900px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--glass-shadow);
+  transition: var(--glass-transition);
+  color: #f0f0f0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.content:hover,
+.centered-box:hover {
+  background: var(--glass-bg-strong);
+  border: var(--glass-border-hover);
+  box-shadow: var(--glass-shadow-hover);
+  transform: translateY(-2px);
+}
+
+/* --- 内容区域的标题 --- */
+.content h1,
+.centered-box h1 {
+  color: #ffffff;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  letter-spacing: 1px;
+}
+
+/* --- 内容区域的段落 --- */
+.content p,
+.centered-box p {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+  font-size: 1.05rem;
 }
 
 /* --- 隐藏类 --- */
@@ -75,46 +161,114 @@ body {
   display: none;
 }
 
-/* --- 图片样式 --- */
+/* --- 图片样式（液态玻璃卡片效果） --- */
 img {
   max-width: 50%;
   height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: var(--glass-transition);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+img:hover {
+  transform: scale(1.02) translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
 /* --- 工具类（原 inline 样式维持） --- */
 .large-p {
   font-size: 24px;
+  color: #ffffff !important;
+  font-weight: 500;
+  letter-spacing: 2px;
 }
 
 .small-p {
   font-size: 12px;
+  color: rgba(255, 255, 255, 0.6) !important;
 }
 
-/* --- 链接颜色还原（ToneCSS 可能覆盖） --- */
+/* --- 按钮样式（玻璃风格） --- */
+a.button,
+.button {
+  display: inline-block;
+  padding: 12px 28px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  color: #ffffff !important;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: var(--glass-transition);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+a.button:hover,
+.button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  color: #ffffff !important;
+}
+
+/* --- 链接颜色（适应深色玻璃背景） --- */
 .centered-box a,
 .content a {
-  color: #0056b3;
+  color: #8ab4f8;
+  transition: color 0.3s ease;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(138, 180, 248, 0.3);
 }
 
 .centered-box a:hover,
 .content a:hover {
-  color: #003d80;
+  color: #a9cbfa;
+  text-decoration-color: rgba(169, 203, 250, 0.6);
 }
 
-/* --- 回复 ToneCSS 对 body 文字的覆盖 --- */
-.centered-box,
-.content {
-  color: #333;
+/* --- 列表样式（适配玻璃背景） --- */
+.content li,
+.centered-box li {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.8;
+  list-style-type: none;
+  margin-bottom: 0.5rem;
 }
 
-/* --- 修复选中文字样式（ToneCSS 默认选中文字会变透明） --- */
+.content li a,
+.centered-box li a {
+  color: #8ab4f8;
+}
+
+/* --- 修复选中文字样式 --- */
 ::selection {
-  background-color: #3390ff !important;
+  background-color: rgba(51, 144, 255, 0.6) !important;
   color: #ffffff !important;
 }
 ::-moz-selection {
-  background-color: #3390ff !important;
+  background-color: rgba(51, 144, 255, 0.6) !important;
   color: #ffffff !important;
+}
+
+/* --- 平滑入场动画 --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content:not(.hidden) {
+  animation: fadeInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
